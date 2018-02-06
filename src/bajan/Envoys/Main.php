@@ -19,7 +19,7 @@ class Main extends PluginBase implements Listener{
 
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->items = (new Config($this->getDataFolder() ."resources\Items.yml", Config::YAML))->getAll();
+		$this->items = (new Config($this->getDataFolder() ."Items.yml", Config::YAML))->getAll();
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new EnvoyTask($this), $this->spawntime*60*20);
 		$this->saveResource("Config.yml");
                 $this->saveResource("Enovys.yml");
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function setEnvoy(Player $player){
-		$cfg = new Config($this->getDataFolder() ."resources\Envoys.yml", Config::YAML);
+		$cfg = new Config($this->getDataFolder() ."Envoys.yml", Config::YAML);
 		$cfg->set($player->x.":".$player->y.":".$player->z, $player->getLevel()->getName());
 		$cfg->save();
 		$player->getLevel()->setBlock($player->getPosition()->asVector3(), Block::get(54));
