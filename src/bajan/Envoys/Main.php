@@ -27,7 +27,7 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function runEnvoyEvent(){
-		$cfg = (new Config($this->getDataFolder() ."resources\Envoys.yml", Config::YAML))->getAll();
+		$cfg = (new Config($this->getDataFolder() ."Envoys.yml", Config::YAML))->getAll();
 		foreach($this->getServer()->getOnlinePlayers() as $player){
                         $player->sendMessage(TF::AQUA."WORLD EVENT");
 			$player->sendMessage(TF::GREEN."Envoys are being spawned in the warzone!");
