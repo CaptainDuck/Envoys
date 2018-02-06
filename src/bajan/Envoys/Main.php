@@ -55,10 +55,13 @@ class Main extends PluginBase implements Listener{
 	}
 
 	
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool {
+    public function onCommand(CommandSender $player, Command $cmd, string $label, array $args) : bool {
 		switch($cmd){
 			case "setenvoy":
-				if(!$player->hasPermission("envoy.set")) {$player->sendMessage(TF::RED."You do not have the required permission"); return false;}
+				if(!$player->hasPermission("envoy.set")) {
+				$player->sendMessage(TF::RED."You do not have the required permission");
+				return false;
+				}
 				$this->setEnvoy($player);
 				return true;
 		}
